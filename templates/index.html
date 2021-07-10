@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<style>{# so it turns out that, for some reason, if I do not place this here, the td tags WILL take the background-color parameter, but completely ignore the height and width parameters #}
+    table tr td{
+        height:50px;
+        width:50px;
+    }
+</style>
+<body>
+    <h1>The chessboard</h1>
+    <table>
+        {%for i in range(rows): %}
+        <tr>
+            {%for j in range(cols): %}
+                <td class='color{{(i+j)%2+1}}'></td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>
